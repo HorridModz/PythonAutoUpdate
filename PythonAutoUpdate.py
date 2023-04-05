@@ -29,11 +29,11 @@ class UpdateHandler:
         if not scriptname:
             scriptname = os.path.basename(__file__)
         if not versionlink:
-            versionlink = rawrepolink + "/main/version.txt"
+            versionlink = rawrepolink + "/master/version.txt"
         if not whatsnewlink:
-            whatsnewlink = rawrepolink + "/main/whatsnew.txt"
+            whatsnewlink = rawrepolink + "/master/whatsnew.txt"
         if not scriptlink:
-            scriptlink = rawrepolink + f"/main/{scriptname}"
+            scriptlink = rawrepolink + f"/master/{scriptname}"
         self.scriptname = scriptname
         self.versionlink = versionlink
         self.whatsnewlink = whatsnewlink

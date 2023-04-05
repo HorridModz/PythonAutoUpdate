@@ -29,11 +29,11 @@ class UpdateHandler:
         if not scriptname:
             scriptname = os.path.basename(__file__)
         if not versionlink:
-            versionlink = rawrepolink + "/main/version.txt"
+            versionlink = rawrepolink + "/master/version.txt"
         if not whatsnewlink:
-            whatsnewlink = rawrepolink + "/main/whatsnew.txt"
+            whatsnewlink = rawrepolink + "/master/whatsnew.txt"
         if not scriptlink:
-            scriptlink = rawrepolink + f"/main/{scriptname}"
+            scriptlink = rawrepolink + f"/master/{scriptname}"
         self.scriptname = scriptname
         self.versionlink = versionlink
         self.whatsnewlink = whatsnewlink
@@ -228,13 +228,13 @@ if __name__ == "__main__":
     updatehandler = UpdateHandler(repolink="https://github.com/Horridmodz/PythonAutoUpdate/POC",
                                   scriptname="AutoUpdatePOC.py",
                                   versionlink="https://raw.githubusercontent.com/Horridmodz/PythonAutoUpdate"
-                                                "/main/POC"
+                                                "/master/POC"
                                                 "/version.txt",
                                   whatsnewlink="https://raw.githubusercontent.com/Horridmodz/PythonAutoUpdate"
-                                              "/main/POC"
+                                              "/master/POC"
                                               "/whatsnew.txt",
                                   scriptlink="https://raw.githubusercontent.com/Horridmodz/PythonAutoUpdate"
-                                              "/main/POC"
+                                              "/master/POC"
                                               "/AutoUpdatePOC.py",
                                   )
     updatehandler.updatedialog()
