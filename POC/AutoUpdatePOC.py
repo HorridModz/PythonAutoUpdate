@@ -146,11 +146,11 @@ class UpdateHandler:
             cloudversion = text.strip()
             if not (cloudversion == __version__ or cloudversion == _IGNOREVERSION):
                 print(f"{self.scriptname} has an update! {self.repolink}")
-                success, text = self._getrequest(self.versionlink,
+                success, text = self._getrequest(self.whatsnewlink,
                                                  errormessage=f"Unable to retrieve changelog for update")
                 if success:
-                    whatsnew = text
-                    print(whatsnew)
+                    whatsnew = text.strip()
+                    print(f"What's new in version {cloudversion}: {whatsnew})
                 toupdate = input("Would you like to update? (Y/N):")
                 if toupdate.strip().lower() == "y":
                     with open(__file__, 'r') as f:
