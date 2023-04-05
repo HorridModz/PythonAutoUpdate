@@ -13,10 +13,10 @@ This can easily be added to existing scripts.
 - [Example](#example)
 
 # Setup
-Github repositories are used for version control. To use this tool, make a github repository with the following files:
-1. A file to store the script code (which will be automatically updated). This must match the name of the local script file.
-2. A file to store the script's current version. The recommended name is `version.txt`.
-3. A file to store a summary of the latest changes in the newest version. The recommended name is `whatsnew.txt`.
+Github repositories are used for version control. To use this tool, make a github repository with the following files:-
+- A file to store the script code (which will be automatically updated). This must match the name of the local script file. 
+- A file to store the script's current version. The recommended name is `version.txt`. 
+- A file to store a summary of the latest changes in the newest version. The recommended name is `whatsnew.txt`.
 
 # Adding to Your Script
 
@@ -32,7 +32,7 @@ __version__ = "1.0.0" # Replace with the current version of your script
 ignoreversion = None
 updatechecking = True
 ```
-Change `__version__` to the current version of your script.
+Change `__version__` to the current version of your script.<br>
 3. Copy and paste the entire UpdateHandler class, and add it to your script.
 
 # Method 2: Importing as a Module
