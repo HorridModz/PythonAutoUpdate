@@ -150,7 +150,7 @@ class UpdateHandler:
                                                  errormessage=f"Unable to retrieve changelog for update")
                 if success:
                     whatsnew = text.strip()
-                    print(f"What's new in version {cloudversion}: {whatsnew})
+                    print(f"What's new in version {cloudversion}: {whatsnew}")
                 toupdate = input("Would you like to update? (Y/N):")
                 if toupdate.strip().lower() == "y":
                     with open(__file__, 'r') as f:
