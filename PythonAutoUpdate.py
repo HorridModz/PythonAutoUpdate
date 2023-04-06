@@ -1,4 +1,4 @@
-__version__ = "1.0.0"
+__version__ = "1.0.0" # Change this to the current version of your project
 _IGNOREVERSION = None
 _UPDATECHECKING = True
 
@@ -126,22 +126,26 @@ class UpdateHandler:
         else:
             raise requests.exceptions.RequestException(f"Request to {self.scriptlink} failed.")
 
-    def checkforupdates(self) -> None:
+    def checkforupdates(self, silentlyfail=True) -> None:
         """
         Checks for updates to the current script on remote github repository.
         Interacts with user via Y/N prompts
         Changes will be applied on next run.
 
+
         Possible outcomes:
         -Nothing happens
-        -Script is updated to latest version on remote github repository
+        -Script silently fails to check for updates
+        -Script fails to check for updates and alerts user (if silentlyfail is True)
+        -Script is successfully updated to latest version from remote github repository
         -The latest version on remote github repository is set to be ignored
-        in future update checks
+        in future update checks by the user
 
         :raises sys.exit: If changes to script are made
         """
+        errormessage = None if silentlyfail else f"{self.scriptname}: Unable to check for updates"
         success, text = self._getrequest(self.versionlink,
-                                         errormessage=f"{self.scriptname}: Unable to check for updates")
+                                         errormessage=errormessage)
         if success:
             cloudversion = text.strip()
             if not (cloudversion == __version__ or cloudversion == _IGNOREVERSION):
@@ -193,11 +197,12 @@ class UpdateHandler:
         Changes will be applied on next run.
 
         Possible outcomes:
-        -Nothing happens
-        -Script is updated to latest version on remote github repository
+        -Script does not check for updates
+        -Script is successfully updated to latest version from remote github repository
+        -Script fails to check for updates and alerts user
         -The latest version on remote github repository is set to be ignored
-        in future update checks
-        -Update checks are permanently disabled
+        in future update checks by the user
+        -Update checks are permanently disabled by the user
 
         :raises sys.exit: If changes to script are made
         """
@@ -205,7 +210,7 @@ class UpdateHandler:
             return
         tocheckforupdates = input(f"{self.scriptname}: Would you like to check for updates? (Y/N):")
         if tocheckforupdates.strip().lower() == "y":
-            self.checkforupdates()
+            self.checkforupdates(silentlyfail=False)
         else:
             todisable = input("Would you like to permanently disable update checking? (Y/N):")
             if todisable.strip().lower() == "y":
