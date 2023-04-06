@@ -132,6 +132,7 @@ class UpdateHandler:
         Interacts with user via Y/N prompts
         Changes will be applied on next run.
 
+        :param silentlyfail: Whether to alert the user if the program fails to check for updates or silently fail
 
         Possible outcomes:
         -Nothing happens

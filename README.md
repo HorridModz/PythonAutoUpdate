@@ -73,7 +73,12 @@ updatehandler = PythonAutoUpdate.UpdateHandler(repolink, scriptname, versionlink
 To run the update dialog, use the `updatedialog` method. This will ask the user if they want to check for updates, and allow them to permanently disable update checking:
 
 ```py
-updatehandler.updatedialog()
+updatehandler.updatedialog(silentlyfail=True)
+```
+
+**Parameters**:
+```
+- silentlyfail: Link to the github repository you created
 ```
 
 If you want to always check for updates, without asking the user if they want to or allowing them to turn it off, you can directly call `checkforupdates`:
