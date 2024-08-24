@@ -78,7 +78,7 @@ updatehandler.updatedialog(silentlyfail=True)
 
 **Parameters**:
 ```
-- silentlyfail: Link to the github repository you created
+- silentlyfail: Whether to alert the user if the program fails to check for updates or silently fail
 ```
 
 If you want to always check for updates, without asking the user if they want to or allowing them to turn it off, you can directly call `checkforupdates`:
