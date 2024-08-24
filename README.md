@@ -32,7 +32,7 @@ __version__ = "1.0.0" # Replace with the current version of your script
 ignoreversion = None
 updatechecking = True
 ```
-Change `__version__` to the current version of your script.
+Change `__version__` to the current version of your script.<br>
 
 3. Copy and paste the entire UpdateHandler class, and add it to your script.
 
